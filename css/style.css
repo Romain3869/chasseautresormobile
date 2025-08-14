@@ -1,9 +1,9 @@
 /* ====== Base ====== */
 :root {
-  --container: 800px; /* largeur max */
-  --space: 16px;
-  --space-lg: 24px;
-  --radius: 10px;
+  --container: 900px; /* plus large */
+  --space: 20px;
+  --space-lg: 30px;
+  --radius: 12px;
   --font-serif: 'Georgia', serif;
   --font-title: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
 }
@@ -22,19 +22,21 @@ body {
   background-image: url('../assets/parchment-bg.jpg');
   background-size: cover;
   background-attachment: fixed;
-  min-height: 100dvh; /* compatibilité iOS barre d'adresse */
+  min-height: 100dvh;
   padding: env(safe-area-inset-top) env(safe-area-inset-right)
            env(safe-area-inset-bottom) env(safe-area-inset-left);
+  font-size: 20px; /* base agrandie */
+  line-height: 1.6;
 }
 
 /* Conteneur principal */
 .container {
   max-width: var(--container);
   margin: 2em auto;
-  padding: 2em;
+  padding: 2.5em;
   background-color: rgba(255, 248, 230, 0.95);
   border: 2px solid #b89b72;
-  box-shadow: 0 0 10px #5f4c2b;
+  box-shadow: 0 0 12px #5f4c2b;
   border-radius: var(--radius);
 }
 
@@ -47,10 +49,18 @@ h1, h2 {
   line-height: 1.2;
 }
 
+h1 {
+  font-size: 2.4em; /* plus grand */
+}
+h2 {
+  font-size: 1.8em;
+}
+
 /* Paragraphes et blocs texte */
 .prologue, .enigme, .narratif, .indice, .success {
-  margin: 1em 0;
+  margin: 1.2em 0;
   white-space: pre-line;
+  font-size: 1.2em; /* plus gros texte */
 }
 
 /* Boutons */
@@ -58,11 +68,12 @@ button {
   background-color: #5f4c2b;
   color: #fff4e6;
   border: none;
-  padding: 14px 18px; /* plus grand pour iPhone */
+  padding: 18px 22px; /* plus grand */
   margin: 1em 0.2em;
-  font-size: 16px; /* évite le zoom auto iOS */
-  border-radius: 6px;
+  font-size: 1.2em; /* texte plus gros */
+  border-radius: 8px;
   cursor: pointer;
+  min-width: 200px;
 }
 
 button:hover {
@@ -76,22 +87,23 @@ button:disabled {
 
 /* Champs de formulaire */
 select, input[type="text"] {
-  padding: 12px 14px;
-  font-size: 16px; /* évite zoom iOS */
+  padding: 14px 16px;
+  font-size: 1.2em;
   border: 1px solid #b89b72;
-  border-radius: 5px;
+  border-radius: 8px;
   width: 100%;
-  max-width: 320px;
+  max-width: 380px; /* plus large */
 }
 
 /* Bouton suivant */
 .btn-suivant {
   display: inline-block;
-  padding: 0.5em 1em;
+  padding: 14px 18px;
   background-color: #2e572e;
   color: white;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 8px;
+  font-size: 1.2em;
 }
 
 .btn-suivant:hover {
@@ -112,28 +124,28 @@ select, input[type="text"] {
   margin-top: var(--space-lg);
 }
 #indice {
-  margin-top: calc(var(--space-lg) + 4px);
+  margin-top: calc(var(--space-lg) + 6px);
 }
 
 /* ====== Ajustements petits écrans (iPhone) ====== */
 @media (max-width: 430px) {
   .container {
-    padding: 20px;
+    padding: 24px;
     margin: 1em;
   }
   h1 {
-    font-size: 26px;
+    font-size: 2em;
   }
   .enigme, #narratif, #indice {
-    font-size: 18px;
+    font-size: 1.3em; /* texte plus lisible */
   }
   button, .btn-suivant {
     width: 100%;
-    padding: 14px 0;
+    padding: 18px 0;
+    font-size: 1.3em;
   }
-}
-
-/* Respect de l’accessibilité */
-@media (prefers-reduced-motion: reduce) {
-  .fade-in { transition: none; }
+  input[type="text"] {
+    max-width: 100%;
+    font-size: 1.3em;
+  }
 }
