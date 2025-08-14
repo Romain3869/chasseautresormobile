@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Chasse aux Trésors - Les Templiers</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🏰 La Quête du Trésor des Templiers 🏰</h1>
+        <p class="prologue">
+            Paris, au crépuscule d’un hiver oublié…<br>
+            Des rumeurs parlent du Trésor du Temple, perdu depuis la chute des Templiers en 1312.<br>
+            Les rares parchemins encore lisibles évoquent huit lieux dissimulés dans le cœur de Paris.<br>
+            Chacun détiendrait un fragment des coordonnées permettant de retrouver le véritable trésor des Templiers.<br>
+            Vous êtes appelés à suivre leur trace… mais prenez garde : les Templiers ne confiaient leur secret qu’aux plus dignes.
+        </p>
+
+        <h2>🔍 Choisissez votre équipe</h2>
+        <label for="route-select">Équipe :</label>
+        <select id="route-select">
+            <option value="A">Équipe 1 – Route A</option>
+            <option value="B">Équipe 2 – Route B</option>
+            <option value="C">Équipe 3 – Route C</option>
+            <option value="D">Équipe 4 – Route D</option>
+            <option value="E">Équipe 5 – Route E</option>
+            <option value="F">Équipe 6 – Route F</option>
+            <option value="G">Équipe 7 – Route G</option>
+            <option value="H">Équipe 8 – Route H</option>
+            <option value="I">Équipe 9 – Route I</option>
+            <option value="J">Équipe 10 – Route J</option>
+        </select>
+        <br><br>
+        <button onclick="startGame()">Commencer l'aventure</button>
+    </div>
+
+    <script>
+        function startGame() {
+            const route = document.getElementById("route-select").value;
+            window.location.href = `etape.html?equipe=${route}&etape=0`;
+        }
+    </script>
+</body>
+</html>

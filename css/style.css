@@ -1,0 +1,139 @@
+/* ====== Base ====== */
+:root {
+  --container: 800px; /* largeur max */
+  --space: 16px;
+  --space-lg: 24px;
+  --radius: 10px;
+  --font-serif: 'Georgia', serif;
+  --font-title: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+}
+
+/* Corps et fond */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-serif);
+  background-color: #f3f0e6;
+  color: #2c2c2c;
+  background-image: url('../assets/parchment-bg.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100dvh; /* compatibilité iOS barre d'adresse */
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+           env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+/* Conteneur principal */
+.container {
+  max-width: var(--container);
+  margin: 2em auto;
+  padding: 2em;
+  background-color: rgba(255, 248, 230, 0.95);
+  border: 2px solid #b89b72;
+  box-shadow: 0 0 10px #5f4c2b;
+  border-radius: var(--radius);
+}
+
+/* Titres */
+h1, h2 {
+  text-align: center;
+  font-family: var(--font-title);
+  color: #4b2e14;
+  margin: 0 0 var(--space);
+  line-height: 1.2;
+}
+
+/* Paragraphes et blocs texte */
+.prologue, .enigme, .narratif, .indice, .success {
+  margin: 1em 0;
+  white-space: pre-line;
+}
+
+/* Boutons */
+button {
+  background-color: #5f4c2b;
+  color: #fff4e6;
+  border: none;
+  padding: 14px 18px; /* plus grand pour iPhone */
+  margin: 1em 0.2em;
+  font-size: 16px; /* évite le zoom auto iOS */
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #3c2e1f;
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+/* Champs de formulaire */
+select, input[type="text"] {
+  padding: 12px 14px;
+  font-size: 16px; /* évite zoom iOS */
+  border: 1px solid #b89b72;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 320px;
+}
+
+/* Bouton suivant */
+.btn-suivant {
+  display: inline-block;
+  padding: 0.5em 1em;
+  background-color: #2e572e;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.btn-suivant:hover {
+  background-color: #1f3d1f;
+}
+
+/* Animation fade-in */
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.8s ease-in;
+}
+.fade-in.show {
+  opacity: 1;
+}
+
+/* Espacement supplémentaire entre narratif et indice */
+#narratif {
+  margin-top: var(--space-lg);
+}
+#indice {
+  margin-top: calc(var(--space-lg) + 4px);
+}
+
+/* ====== Ajustements petits écrans (iPhone) ====== */
+@media (max-width: 430px) {
+  .container {
+    padding: 20px;
+    margin: 1em;
+  }
+  h1 {
+    font-size: 26px;
+  }
+  .enigme, #narratif, #indice {
+    font-size: 18px;
+  }
+  button, .btn-suivant {
+    width: 100%;
+    padding: 14px 0;
+  }
+}
+
+/* Respect de l’accessibilité */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in { transition: none; }
+}

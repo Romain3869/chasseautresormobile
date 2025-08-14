@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Étape de la quête</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/parcours.js"></script>
+    <script src="js/data.js"></script>
+    <script defer src="js/game.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 id="lieu-nom">Lieu</h1>
+        <p id="enigme" class="enigme">Énigme...</p>
+        <button id="btn-verif" onclick="verifierPosition()">Je suis sur place</button>
+
+        <p id="narratif" class="narratif"></p>
+        <p id="indice" class="indice"></p>
+
+        <div id="reponse-section">
+            <label for="reponse">Quel est le chiffre caché ?</label><br>
+            <input type="text" id="reponse" />
+            <button id="btn-valider" onclick="validerReponse()">Valider</button>
+        </div>
+
+        <p id="success" class="success"></p>
+        <a id="suivant" href="#" class="btn-suivant" style="display:none;">Étape suivante →</a>
+    </div>
+</body>
+</html>
